@@ -2,12 +2,12 @@
 
 ## Overview
 
-Unity API에 Safe한 글로벌 타이머 디스패처 입니다. 시스템 전역적으로 time에 의한 sync가 맞습니다.
-다른 스레드에서 돌리고 싶었지만 어떻게 쓰일지 몰라 Unity API에 안전하게 메인 스레드에서 돌리도록 했습니다.
-따라서, 이 타이머에 너무 오래 blocking 되는 작업을 dispatch하면 안됩니다.
-등록된 작업이 실행되는 시점은(유니티 이벤트 실행 순서에서) LateUpdate입니다.
-이 디스패처에서 흐르는 시간은 realtimeSinceStartUp을 기준으로 두고 있습니다.
-마땅한 엔트리 포인트를 찾지 못하여 우선은, GameSettingManager가 Init되는 시점에 생성되도록 하였습니다.
+This is a safe global timer Dispatch on Unity API. System globally correct sync by time.
+I wanted to turn it on a different thread, but I didn't know how to use it so I decided to turn it safely on the main thread in Unity API.
+Therefore, you should not be able to dispat the task that blocks the timer for too long.
+When the registered task runs (in the order in which it runs) is RateUpdate.
+The time that flows from this Dispatch is based on realtimeSinceStartUp.
+No suitable entry points were found, so the GameSettingManager was created at the time of entry.
 
 ## API
 
