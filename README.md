@@ -3,11 +3,11 @@
 ## Overview
 
 This is a safe global timer Dispatcher on Unity API. System globally correct sync by time.
-I wanted to turn it on a different thread, but I didn't know how to use it so I decided to turn it safely on the main thread in Unity API.
-Therefore, you should not be able to dispat the task that blocks the timer for too long.
-When the registered task runs (in the order in which it runs) is RateUpdate.
-The time that flows from this Dispatch is based on realtimeSinceStartUp.
-No suitable entry points were found, so the GameSettingManager was created at the time of entry.
+I wanted to make it work on a different thread, but I didn't know how to use it.
+So, I decided to work it safely on the main thread in Unity API.
+Therefore, you should not be able to dispatch the task that blocks the timer for too long.
+When the registered task runs (in the order in which it runs) is "Late Update".
+The time that flows from this Dispatcher is based on "realtimeSinceStartUp".
 
 ## API
 
